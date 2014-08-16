@@ -8,8 +8,6 @@ from django.shortcuts import render_to_response
 
 from getright.models import Page
 
-admin.site.register(Page)
-
 admin.autodiscover()
 
 def index(request):
