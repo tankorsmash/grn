@@ -3,37 +3,30 @@ from django import http
 from django.conf.urls import patterns, include, url
 from django.contrib import admin
 
+from django.template.loader import render_to_string
+from django.shortcuts import render_to_response
+
+from getright.models import Page
+
+admin.site.register(Page)
 
 admin.autodiscover()
 
-def return_poop(request):
-	import requests
-	import random
-	subreddit = random.choice(['gentlemanboners', 'aww', 'puppies', 'ladyboners', 'scarlettjohansson', 'katyperry', 'davidtennant'])
-	resp = requests.get("http://reddit.com/r/%s/top/.json" % subreddit)
-	j = resp.json()
-	try:
-		img_url = j['data']['children'][0]['data']['url']
-	except (KeyError, IndexError):
-		img_url = ""
-	err_count = 0
-	while not img_url.endswith(".jpg") or not img_url.endswith('.png') and err_count < 10:
-		subreddit = random.choice(['gentlemanboners', 'aww', 'puppies', 'ladyboners', 'scarlettjohansson', 'katyperry', 'davidtennant'])
-		resp = requests.get("http://reddit.com/r/%s/top/.json" % subreddit)
-		j = resp.json()
-		try:
-			img_url = j['data']['children'][0]['data']['url']
-		except (KeyError, IndexError):
-			img_url = ""
-		err_count+=1
-
-	return http.HttpResponse("<img src='%s'> %s" % (img_url, subreddit))
-	#return http.HttpResponse("sarah is a whore")
+def index(request):
+    try:
+        page = Page.objects.all()[0]
+    except:
+        page = Page.objects.create(
+            title="Test Page",
+            description="This is a test description",
+            content="This is a test post content. This is also <em>bold</em>."
+        )
+    return render_to_response("base.html", {'page': page})
 
 urlpatterns = patterns('',
-    # Examples:
-    url(r'^$', return_poop, name='home'),
-    # url(r'^blog/', include('blog.urls')),
+                       # Examples:
+                       url(r'^$', index, name='home'),
+                       # url(r'^blog/', include('blog.urls')),
 
-    url(r'^admin/', include(admin.site.urls)),
-)
+                       url(r'^admin/', include(admin.site.urls)),
+                       )
