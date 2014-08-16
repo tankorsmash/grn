@@ -24,7 +24,7 @@ class Page(TimedMixin):
 
     title = models.CharField(max_length=999)
     description = models.CharField(max_length=999)
+    slug = models.CharField(max_length=999)
 
     content = models.TextField()
-
     # author = models.ForeignKey(User, null=True, blank=True)
