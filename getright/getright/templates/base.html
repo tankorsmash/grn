@@ -28,25 +28,42 @@
 			GetRight Nutrition
 		</div>
 
-		<div id="header">
-			<h1 style="">
-				{{ page.title }} 
-			</h1 >
-			<h2>
-				{{ page.description }} 
-			</h2>
-		</div>
-
 		<div id="content">
-			{{ page.content|safe }} 
-		</div>
+			<div class="left">
+				<div id="header">
+					<h1 style="">
+						{{ page.title }} 
+						</h1 >
+						<h2>
+							{{ page.description }} 
+						</h2>
+					</div>
 
-		<div id="footer">
-			<small>By SJF</small>
-			<div id="permalink">
-				<a title="{{ page.title }}" href="{{ page.get_absolute_url }}"> permalink</a>
+					{{ page.content|safe }} 
+				</div>
+				<div class="right">
+					<div id="sidebar">
+						<div class="sidebar-header"> Other pages</div>
+						{% for p in pages %}
+							{% if page != p %}
+								<div class="sidebar-page">
+									{{ p.render_permalink|safe }}<br>
+									<span class="sidebar-description">
+										<em>{{ p.description|safe }}</em>
+									</span>
+								</div>
+							{% endif %}
+						{% endfor %}
+					</div>
+				</div>
 			</div>
-		</div>
-	</body>
+
+			<div id="footer">
+				<small>By SJF</small>
+				<div id="permalink">
+					<a title="{{ page.title }}" href="{{ page.get_absolute_url }}"> permalink</a>
+				</div>
+			</div>
+		</body>
 
 	</html>

@@ -31,4 +31,9 @@ class Page(TimedMixin):
     # author = models.ForeignKey(User, null=True, blank=True)
 
     def get_absolute_url(self):
-        return "/pages/%s/" % self.slug if self.slug else "/pages/"
+        return u"/pages/%s/" % self.slug if self.slug else "/pages/"
+
+    def render_permalink(self):
+        return u"<a href='{url}' title='{title}'>{title}</a>".format(
+            title=self.title,
+            url=self.get_absolute_url())

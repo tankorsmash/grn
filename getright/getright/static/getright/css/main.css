@@ -7,3 +7,37 @@ body  {
 a {
     color: #448eb8;
 }
+
+.left {
+    float:left;
+}
+
+.right {
+    float:right;
+}
+
+#footer {
+    clear:left;
+}
+
+.sidebar-header {
+    text-decoration:underline;
+    margin-bottom: 10px;
+}
+
+.sidebar-description {
+    width: 200px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    display: block;
+}
+
+.sidebar-description:hover {
+    overflow: inherit;
+}
+
+.sidebar-page {
+    margin-top: 5px;
+}
+

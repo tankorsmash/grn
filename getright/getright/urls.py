@@ -26,11 +26,17 @@ def index(request):
 			slug='welcome'
 		)
 
-	return render_to_response("base.html", {'page': page})
+	pages = Page.objects.all()
+	return render_to_response("base.html", {
+		'page': page,
+		'pages' : pages,})
 
 def get_by_slug(request, page_slug):
 	page = get_object_or_404(Page, slug=page_slug)
-	return render_to_response("base.html", {'page': page})
+	pages = Page.objects.all()
+	return render_to_response("base.html", {
+		'page': page,
+		'pages' : pages,})
 
 urlpatterns = patterns('',
 					   # Examples:
