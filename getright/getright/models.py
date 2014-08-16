@@ -15,6 +15,7 @@ class TimedMixin(models.Model):
         self.updated_when = datetime.datetime.utcnow()
         super(TimedMixin, self).save(*args, **kwargs)
 
+
 class Category(TimedMixin):
     title = models.CharField(max_length=999)
     description = models.CharField(max_length=999)
@@ -28,3 +29,6 @@ class Page(TimedMixin):
 
     content = models.TextField()
     # author = models.ForeignKey(User, null=True, blank=True)
+
+    def get_absolute_url(self):
+        return "/pages/%s/" % self.slug if self.slug else "/pages/"

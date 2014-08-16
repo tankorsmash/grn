@@ -7,30 +7,40 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
         <title>GetRight Nutrition</title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="icon" type="image/png" href="http://0.gravatar.com/avatar/2dfc2e563d2150994a6e06ef37f9e7be?s=64&d=identicon&r=X">
+		<!-- <link rel="stylesheet" href="css/normalize.min.css"> -->
+		<!-- <link rel="stylesheet" href="css/main.css"> -->
 
-        <!-- <link rel="stylesheet" href="css/normalize.min.css"> -->
-        <!-- <link rel="stylesheet" href="css/main.css"> -->
-
-    </head>
-    <body>
-        <!--[if lt IE 7]>
-            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-        <![endif]-->
+	</head>
+	<body>
+		<!--[if lt IE 7]>
+		<p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+		<![endif]-->
 
 
-        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 
 		<div id="header">
-			<h1 style=""> {{ page.title }} </h1>
-			<h2> {{ page.description }} </h2>
+			<h1 style="">
+				{{ page.title }} 
+			</h1 >
+			<h2>
+				{{ page.description }} 
+			</h2>
 		</div>
 
-		<div id="content"> {{ page.content|safe }} </div>
+		<div id="content">
+			{{ page.content|safe }} 
+		</div>
 
 		<div id="footer">
+			<small>By SJF</small>
+			<div id="permalink">
+				<a title="{{ page.title }}" href="{{ page.get_absolute_url }}"> permalink</a>
+			</div>
 		</div>
 	</body>
 
-</html>
+	</html>
