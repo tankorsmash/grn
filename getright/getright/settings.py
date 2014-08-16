@@ -28,6 +28,8 @@ ALLOWED_HOSTS = []
 
 TEMPLATE_DIRS = [os.path.join(BASE_DIR, 'templates')]
 
+SITE_NAME = "GetRight Nutrition"
+
 
 # Application definition
 
