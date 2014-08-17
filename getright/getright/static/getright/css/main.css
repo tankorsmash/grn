@@ -70,11 +70,6 @@ h1, h2, h3, h4, h5 {
 
 #header-toolbar-wrap {
     background-color: rgba(99, 161, 228, 1);
-    padding-left: 3000px;
-    margin-left: -3000px;
-
-    padding-right: 3000px;
-    margin-right: -3000px;
 
     font-family: Arial, Helvetica, sans-serif;
     font-size: 14px;
@@ -136,7 +131,13 @@ h1, h2, h3, h4, h5 {
     background-color: #448eb8; 
     font-family:"Century Gothic", "HelveticaNeueLT Pro 45 Lt", sans-serif; 
     float: left; 
+
+    padding-left: 3000px;
+    margin-left: -3000px;
+    padding-right: 3000px;
+    margin-right: -3000px;
 }
+
 #nav .nav-header { 
     list-style: none; 
     float: left; 
@@ -145,27 +146,33 @@ h1, h2, h3, h4, h5 {
     line-height: 30px; 
     text-align: center;
 } 
+
 #nav .nav-header a { 
     color: white; 
     text-decoration: none; 
     display: block; 
 } 
+
 #nav .nav-header a:hover { 
     background-color: #5FC5C5; 
 } 
+
 #nav .nav-header .nav-list { 
     position: absolute;  
     display: none; 
     padding-left: 0px;
     margin-top: 0px;
 } 
+
 #nav .nav-header:hover .nav-list { 
     display: block; 
 } 
+
 #nav .nav-header .nav-item { 
     float: none; 
     display: inline; 
 }
+
 #nav .nav-header .nav-item .nav-item-title { 
     width: 118px; 
     position: relative; 
