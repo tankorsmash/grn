@@ -66,6 +66,7 @@ WSGI_APPLICATION = 'getright.wsgi.application'
 # https://docs.djangoproject.com/en/1.6/ref/settings/#databases
 
 from databases import DATABASES
+from email_settings import *
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.6/topics/i18n/
@@ -87,5 +88,5 @@ USE_TZ = True
 STATIC_URL = '/static/'
 try:
 	from static_root import *
-except: 
+except:
 	pass
