@@ -6,10 +6,12 @@ from django.contrib import admin
 from django.template.loader import render_to_string
 from django.shortcuts import render_to_response, get_object_or_404
 
-from getright.models import Page
+from getright.models import Page, Dropdown, Toolbar
 
 try:
 	admin.site.register(Page)
+	admin.site.register(Dropdown)
+	admin.site.register(Toolbar)
 except:
 	pass
 

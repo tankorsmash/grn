@@ -37,3 +37,20 @@ class Page(TimedMixin):
         return u"<a href='{url}' title='{title}'>{title}</a>".format(
             title=self.title,
             url=self.get_absolute_url())
+
+    def __str__(self):
+        return "Page: %s, at %s" % (self.title, self.slug)
+
+class Dropdown(TimedMixin):
+    title = models.CharField(max_length=999)
+    pages = models.ManyToManyField(Page)
+    top_page = models.ForeignKey(Page, null=True, blank=True, related_name="+")
+
+    def __str__(self):
+        return "Dropdown [%s]: %s (%s items)" % (self.id, self.title, self.pages.count())
+
+class Toolbar(TimedMixin):
+    dropdowns = models.ManyToManyField(Dropdown)
+
+    def __str__(self):
+        return "Toolbar [%s]: (%s items)" % (self.id, self.dropdowns.count())
