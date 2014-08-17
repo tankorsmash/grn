@@ -2,9 +2,15 @@ body  {
     margin-left: 20%;
     margin-right: 20%;
     margin-top: 5%;
+    background-color: #F1F1F1;
+    font-family: 'Open Sans', sans-serif;
 }
 
 a {
+    color: #448eb8;
+}
+
+h1, h2, h3, h4, h5 {
     color: #448eb8;
 }
 
@@ -18,6 +24,7 @@ a {
 
 #footer {
     clear:left;
+    padding-top: 30px;
 }
 
 #logo {
@@ -41,7 +48,7 @@ a {
 }
 
 .sidebar-header {
-    text-decoration:underline;
+    /* text-decoration:underline; */
     margin-bottom: 10px;
 }
 
