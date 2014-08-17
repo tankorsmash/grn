@@ -20,6 +20,25 @@ a {
     clear:left;
 }
 
+#logo {
+    font-family: 'Open Sans', sans-serif;   
+    font-size: 72px;
+    line-height: 90px;
+    font-family: 'Open Sans', sans-serif;
+    color: #448eb8;
+    font-weight: 800;
+    /* text-align: center; */
+    letter-spacing: -5px;
+    text-shadow: 0px 18px 21px rgba(0, 0, 0, 0.2);
+}
+
+#logo-getright {
+    text-align: left;
+}
+
+#logo-nutrition {
+    margin-left: 350px;
+}
 
 .sidebar-header {
     text-decoration:underline;
@@ -42,8 +61,13 @@ a {
     margin-top: 5px;
 }
 
-#header-toolbar {
-    background-color: #f0f0f0;
+#header-toolbar-wrap {
+    background-color: rgba(99, 161, 228, 0.64);
+    padding-left: 3000px;
+    margin-left: -3000px;
+
+    padding-right: 3000px;
+    margin-right: -3000px;
 }
 
 .dropdown {
