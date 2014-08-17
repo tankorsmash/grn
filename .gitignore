@@ -6,6 +6,8 @@
 ## Eclipse
 #################
 
+*.pid
+
 *.pydevproject
 .project
 .metadata
