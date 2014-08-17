@@ -88,6 +88,8 @@ a {
     border-right: 3px solid white;
 
     color: white;
+
+    min-width:150px;
 }
 
 .dropdown a {
