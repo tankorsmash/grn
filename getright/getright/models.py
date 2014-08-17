@@ -38,6 +38,11 @@ class Page(TimedMixin):
             title=self.title,
             url=self.get_absolute_url())
 
+    def render_nav_item(self):
+        return u"<a href='{url}' class='nav-item-title' title='{title}'>{title}</a>".format(
+            title=self.title,
+            url=self.get_absolute_url())
+
     def __str__(self):
         return "Page: %s, at %s" % (self.title, self.slug)
 

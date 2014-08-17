@@ -14,6 +14,60 @@
 		<!-- <link rel="stylesheet" href="css/main.css"> -->
 		{% load staticfiles %}
 		<link rel="stylesheet" href="{% static "getright/css/main.css" %}"> 
+    <style>
+        #header { 
+            <!--min-width: 800px; -->
+            <!--height: 150px; -->
+        } 
+        #nav {  
+            width: 100%; 
+			background-color: #448eb8; 
+            font-family:"Century Gothic", "HelveticaNeueLT Pro 45 Lt", sans-serif; 
+            float: left; 
+        }
+        #nav .nav-header { 
+            list-style: none; 
+            float: left; 
+            width: 120px; 
+            height: 30px; 
+            line-height: 30px; 
+            text-align: center;
+        } 
+        #nav .nav-header a { 
+            color: white; 
+            text-decoration: none; 
+            display: block; 
+        } 
+        #nav .nav-header a:hover { 
+            background-color: #5FC5C5; 
+        } 
+        #nav .nav-header .nav-list { 
+            position: absolute;  
+            display: none; 
+			padding-left: 0px;
+			margin-top: 0px;
+        } 
+        #nav .nav-header:hover .nav-list { 
+            display: block; 
+        } 
+        #nav .nav-header .nav-item { 
+            float: none; 
+            display: inline; 
+        }
+        #nav .nav-header .nav-item .nav-item-title { 
+            width: 118px; 
+            position: relative; 
+            border-left: 1px solid white; 
+            border-right: 1px solid white; 
+            border-bottom: 1px solid white; 
+            background: #5FC5C5; 
+            color: #fff; 
+        }
+        #nav .nav-header .nav-item .nav-item-title:hover { 
+            background: #066; 
+            color: #000; 
+        }
+    </style>
 
 	</head>
 	<body>
@@ -32,25 +86,29 @@
 			</div>
 
 			<div id="header-toolbar-wrap">
-			<div id="header-toolbar">
+			<div id="nav">
 				{% for dropdown in toolbar.dropdowns.all %}
-				<div class="dropdown">
-					<div class="dropdown-title">
+				<li class="nav-header">
+					<div class="nav-title">
 						{% if dropdown.top_page %}
 							<a href="{{dropdown.top_page.get_absolute_url}}" title="{{ dropdown.title|safe }}">
 								{{ dropdown.title|safe }}
 							</a> 
 						{% else %}
-							{{ dropdown.title|safe }}
+							<a href="#"> {{ dropdown.title|safe }}</a>
 						{% endif %}
 					</div>
 
-					{% for p in dropdown.pages.all %}
-						<div class="dropdown-item">
-							{{ p.render_permalink|safe}}
-						</div>
-					{% endfor %}
-				</div>
+					{% if dropdown.pages.exists %}
+					<ul class="nav-list">
+						{% for p in dropdown.pages.all %}
+							<li class="nav-item">
+								{{ p.render_nav_item|safe}}
+							</li>
+						{% endfor %}
+					</ul>
+					{% endif %}
+				</li>
 				{% endfor %}
 			</div>
 			</div>
