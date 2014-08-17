@@ -26,6 +26,28 @@
 
 		<div id="site-header">
 			GetRight Nutrition
+
+			<div id="header-toolbar">
+				{% for dropdown in toolbar.dropdowns.all %}
+				<div class="dropdown">
+					<div class="dropdown-title">
+						{% if dropdown.top_page %}
+							<a href="{{dropdown.top_page.get_absolute_url}}" title="{{ dropdown.title|safe }}">
+								{{ dropdown.title|safe }}
+							</a> 
+						{% else %}
+							{{ dropdown.title|safe }}
+						{% endif %}
+					</div>
+
+					{% for p in dropdown.pages.all %}
+						<div class="dropdown-item">
+							{{ p.render_permalink|safe}}
+						</div>
+					{% endfor %}
+				</div>
+				{% endfor %}
+			</div>
 		</div>
 
 		<div id="content">

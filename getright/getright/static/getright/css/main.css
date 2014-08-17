@@ -20,6 +20,7 @@ a {
     clear:left;
 }
 
+
 .sidebar-header {
     text-decoration:underline;
     margin-bottom: 10px;
@@ -41,3 +42,20 @@ a {
     margin-top: 5px;
 }
 
+#header-toolbar {
+    background-color: #f0f0f0;
+}
+
+.dropdown {
+    float:left;
+    display: inline-block;
+    padding-right: 5px;
+}
+
+.dropdown-item {
+    padding-left: 10px;
+}
+
+.dropdown:last-child {
+    float:none;
+}

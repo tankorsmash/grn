@@ -29,9 +29,12 @@ def index(request):
 		)
 
 	pages = Page.objects.all()
+	toolbar = Toolbar.objects.all()[0]
 	return render_to_response("base.html", {
 		'page': page,
-		'pages' : pages,})
+		'pages' : pages,
+		'toolbar' : toolbar,
+	})
 
 def get_by_slug(request, page_slug):
 	page = get_object_or_404(Page, slug=page_slug)
